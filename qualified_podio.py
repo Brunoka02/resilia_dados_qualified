@@ -1,11 +1,22 @@
-def podio_olimpico(tempo_chegada1, tempo_chegada2, tempo_chegada3):
-    lista_tempos = []
+def podio_olimpico(tempo_chegada1, tempo_chegada2, tempo_chegada3, nome_corredor1, nome_corredor2, nome_corredor3):
+  global vencedores
+  if tempo_chegada1 < tempo_chegada2 and tempo_chegada1 < tempo_chegada3:
+    vencedores = (f'1 - {nome_corredor1} - {tempo_chegada1} minutos\n2 - {nome_corredor2} - {tempo_chegada2} minutos\n3 - {nome_corredor3} - {tempo_chegada3} minutos\n')
+    
+  if tempo_chegada1 < tempo_chegada3 and tempo_chegada3 < tempo_chegada2:
+    vencedores = (f'1 - {nome_corredor1} - {tempo_chegada1} minutos\n2 - {nome_corredor3} - {tempo_chegada3} minutos\n3 - {nome_corredor2} - {tempo_chegada2} minutos\n')
 
-    lista_tempos.append(tempo_chegada2)
-    lista_tempos.append(tempo_chegada1)
-    lista_tempos.append(tempo_chegada3)
-    lista_tempos.sort()
-    return print("1 - {} minutos\n2 - {} minutos\n3 - {} minutos".format(lista_tempos[0],lista_tempos[1],lista_tempos[2]))
+  if tempo_chegada2 < tempo_chegada1 and tempo_chegada2 < tempo_chegada3:
+    vencedores = (f'1 - {nome_corredor2} - {tempo_chegada2} minutos\n2 - {nome_corredor1} - {tempo_chegada1} minutos\n3 - {nome_corredor3} - {tempo_chegada3} minutos\n')
+  
+  if tempo_chegada2 < tempo_chegada3 and tempo_chegada3 < tempo_chegada1:
+    vencedores = (f'1 - {nome_corredor2} - {tempo_chegada2} minutos\n2 - {nome_corredor3} - {tempo_chegada3} minutos\n3 - {nome_corredor1} - {tempo_chegada1} minutos\n')
 
-podio_olimpico(1,9,7)
+  if tempo_chegada3 < tempo_chegada1 and tempo_chegada3 < tempo_chegada2:
+    vencedores = (f'1 - {nome_corredor3} - {tempo_chegada3} minutos\n2 - {nome_corredor1} - {tempo_chegada1} minutos\n3 - {nome_corredor2} - {tempo_chegada2} minutos\n')
+    
+  if tempo_chegada3 < tempo_chegada2 and tempo_chegada2 < tempo_chegada1:
+    vencedores = (f'1 - {nome_corredor3} - {tempo_chegada3} minutos\n2 - {nome_corredor2} - {tempo_chegada2} minutos\n3 - {nome_corredor1} - {tempo_chegada1} minutos\n')
+                  
+  return vencedores
 
